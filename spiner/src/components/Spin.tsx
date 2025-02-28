@@ -3,7 +3,7 @@ import Lottie from 'lottie-react';
 import loadingAnimation from '../assets/loading.json'; 
 import successAnimation from '../assets/success.json';
 import styles from "./Spin.module.css";
-
+import logo from "../../public/logo-removebg-preview.png"
 function DiscountBox() {
   const [email, setEmail] = useState("");
   const [discount, setDiscount] = useState(null);
@@ -43,7 +43,7 @@ function DiscountBox() {
         // Показати знижку через 3 секунди після анімації
         setTimeout(() => {
           setShowDiscount(true);
-        }, 2500);
+        }, 1100);
 
       }, 2000);
     } catch (error) {
@@ -54,7 +54,7 @@ function DiscountBox() {
 
   return (
     <div className={styles.body}>
-      
+      <img src={logo}/>
       <input 
         type="email"
         placeholder="Введіть ваш email"
