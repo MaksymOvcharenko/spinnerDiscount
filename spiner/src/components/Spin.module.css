@@ -9,6 +9,7 @@
   transform: translate(-50%, -50%);
   font-size: 36px;
   font-weight: 600;
+  background: rgb(146, 212, 250);
 }
 .contMain {
 }
@@ -71,13 +72,14 @@
 .cont {
   position: absolute;
   z-index: 100;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 36px;
   font-weight: bold;
   color: rgb(13, 2, 84);
   /* background: rgba(99, 233, 140, 0.7); */
-  padding: 5px 15px;
+  padding: 15px 30px;
+  width: 160px;
   border-radius: 10px;
 }
