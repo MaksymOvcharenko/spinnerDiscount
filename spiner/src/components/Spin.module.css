@@ -25,6 +25,7 @@
   text-align: center;
   box-shadow: 1px 16px 27px -18px rgba(66, 68, 90, 1);
   color: rgb(5, 3, 54);
+  font-family: "Montserrat", sans-serif;
   /* box-shadow: inset 0px 5px 10px 0px rgba(0, 255, 255, 0.7); */
   margin: 25px;
   border-radius: 8px;
@@ -38,13 +39,16 @@
   border-radius: 5px;
   width: 250px;
   margin-bottom: 10px;
-  background: rgb(72, 108, 251);
+  background: #0084d5;
   color: rgb(255, 255, 255);
   margin-top: 20px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 .input::placeholder {
   color: rgb(255, 255, 255);
   text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 .input:focus-visible {
   border: none;
@@ -55,10 +59,11 @@
 }
 
 .button {
+  font-family: "Montserrat", sans-serif;
   padding: 10px 20px;
   font-size: 18px;
   cursor: pointer;
-  background: rgb(246, 222, 4);
+  background: #ffd52b;
   border: none;
   border-radius: 5px;
   margin-top: 10px;
@@ -82,7 +87,7 @@
   transform: translate(-50%, -50%);
   font-size: 36px;
   font-weight: bold;
-  color: rgb(72, 108, 251);
+  color: #0084d5;
   /* background: rgba(99, 233, 140, 0.7); */
   padding: 19px 30px;
   width: 160px;

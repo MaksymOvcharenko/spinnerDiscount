@@ -11,46 +11,51 @@ function DiscountBox() {
   const [error, setError] = useState("");
   const [showDiscount, setShowDiscount] = useState(false);
 
-  const fetchDiscount = async () => {
-    if (!email.trim()) {
-      setError("Введіть email!");
+ const fetchDiscount = async () => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!email.trim()) {
+    setError("Введіть email!");
+    return;
+  }
+  if (!emailRegex.test(email)) {
+    setError("Некоректний email!");
+    return;
+  }
+
+  setIsLoading(true);
+  setError(""); 
+  setShowDiscount(false);
+
+  try {
+    const response = await fetch('https://ivancom-server.onrender.com/wheel/spin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+
+    if (response.status === 400) {
+      setIsLoading(false);
+      setError("Цей email вже отримав знижку!");
       return;
     }
-    
-    setIsLoading(true);
-    setError(""); 
-    setShowDiscount(false);
 
-    try {
-      const response = await fetch('https://ivancom-server.onrender.com/wheel/spin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
+    const data = await response.json();
 
-      if (response.status === 400) {
-        setIsLoading(false);
-        setError("Цей email вже отримав знижку!");
-        return;
-      }
-
-      const data = await response.json();
+    setTimeout(() => {
+      setDiscount(data.prize.discount);
+      setIsLoading(false);
 
       setTimeout(() => {
-        setDiscount(data.prize.discount);
-        setIsLoading(false);
+        setShowDiscount(true);
+      }, 1100);
 
-        // Показати знижку через 3 секунди після анімації
-        setTimeout(() => {
-          setShowDiscount(true);
-        }, 1100);
-
-      }, 2000);
-    } catch (error) {
-      console.error('Помилка отримання знижки:', error);
-      setIsLoading(false);
-    }
-  };
+    }, 2000);
+  } catch (error) {
+    console.error('Помилка отримання знижки:', error);
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className={styles.body}>
@@ -65,7 +70,7 @@ function DiscountBox() {
       {error && <p className={styles.error}>{error}</p>}
 
       <button onClick={fetchDiscount} className={styles.button}>
-        Отримати знижку
+        ОТРИМАТИ ЗНИЖКУ
       </button>
 
       {/* Анімація загрузки */}
