@@ -48,7 +48,7 @@ function DiscountBox() {
 
       setTimeout(() => {
         setShowDiscount(true);
-      }, 1100);
+      }, 1500);
 
     }, 2000);
   } catch (error) {
