@@ -165,8 +165,8 @@ function DiscountBox() {
     setUiMessage("");
 
     try {
-      // const response = await fetch('https://ivancom-server.onrender.com/wheel/spin', {
-      const response = await fetch('http://localhost:3000/wheel/spin', {
+      const response = await fetch('https://ivancom-server.onrender.com/wheel/spin', {
+      // const response = await fetch('http://localhost:3000/wheel/spin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
